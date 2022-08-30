@@ -43,8 +43,7 @@
 
       const sendMsg = () => {
         let msg = document.getElementById('msg').value;
-        console.log(msg);
-        alert(msg);
+        socket.emit('chat', msg);
       };
     </script>
   </body>
