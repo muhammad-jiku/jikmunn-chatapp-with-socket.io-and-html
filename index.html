@@ -14,7 +14,22 @@
     />
   </head>
   <body>
-    <h1>Chat APP</h1>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-6 col-lg-6">
+          <!-- <form> -->
+          <div class="mb-3">
+            <label for="exampleInputText" class="form-label"
+              >Write Your Text here</label
+            >
+            <input type="text" class="form-control" id="exampleInputText" />
+          </div>
+
+          <button class="btn btn-primary">Send</button>
+          <!-- </form> -->
+        </div>
+      </div>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
