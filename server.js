@@ -15,9 +15,18 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  socket.on('chat', (msg) => {
-    io.emit('showChat', msg);
-  });
+  // socket.on('chat', (msg) => {
+  //   io.emit('showChat', msg);
+  // });
+
+  // creating room
+  socket.join('myRoom');
+  io.sockets.in('myRoom').emit('read', 'hola');
+
+  // creating room
+  socket.join('myDaughterRoom');
+  io.sockets.in('myDaughterRoom').emit('study', 'hola papa!');
+  io.sockets.in('myDaughterRoom').emit('sleep', 'I am tired!');
 });
 
 expressServer.listen(port, () => {
