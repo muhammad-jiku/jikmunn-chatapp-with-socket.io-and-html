@@ -21,11 +21,17 @@ io.on('connection', (socket) => {
 
   // creating room
   socket.join('myRoom');
-  io.sockets.in('myRoom').emit('read', 'hola');
+  let sizeOfMyRoom = io.sockets.adapter.rooms.get('myRoom').size;
+  io.sockets.in('myRoom').emit('read', 'hola =' + sizeOfMyRoom);
+  io.sockets.in('myRoom').emit('nap', 'do not disturb i am napping');
 
   // creating room
   socket.join('myDaughterRoom');
-  io.sockets.in('myDaughterRoom').emit('study', 'hola papa!');
+  let sizeOfMyDaughterRoom =
+    io.sockets.adapter.rooms.get('myDaughterRoom').size;
+  io.sockets
+    .in('myDaughterRoom')
+    .emit('study', 'hola papa! = ' + sizeOfMyDaughterRoom);
   io.sockets.in('myDaughterRoom').emit('sleep', 'I am tired!');
 });
 
